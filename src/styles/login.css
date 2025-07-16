@@ -1,0 +1,79 @@
+.login-container {
+  height: calc(100vh - 60px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, rgba(88, 66, 233, 0.32), black);
+  font-family: "Segoe UI", sans-serif;
+}
+
+.login-form {
+  background: rgba(255, 255, 255, 0.125);
+  padding: 2rem 3rem;
+  border-radius: 1rem;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  color: white;
+  width: 30rem;
+  transform: translateY(30px);
+  opacity: 0;
+  transition: all 0.6s ease;
+}
+.login-form.fade-in {
+  transform: translateY(0);
+  opacity: 1;
+}
+.login-form h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 3rem;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.login-form .input-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+.login-form .input-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 1rem;
+  outline: none;
+}
+.login-form .input-group label {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  color: #ddd;
+  transition: 0.3s ease;
+  pointer-events: none;
+}
+.login-form .input-group input:focus + label,
+.login-form .input-group input:valid + label {
+  top: 0;
+  left: 8px;
+  font-size: 1rem;
+  color: #fff;
+  background: rgba(85, 58, 235, 0.702);
+  padding: 0 5px;
+  border-radius: 5px;
+}
+.login-form button {
+  width: 100%;
+  padding: 0.75rem;
+  background: #6a82fb;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.login-form button:hover {
+  background: #5f72e9;
+}/*# sourceMappingURL=login.css.map */

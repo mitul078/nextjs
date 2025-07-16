@@ -1,0 +1,155 @@
+.ProductPage {
+  width: 100%;
+  height: calc(100vh - 60px);
+  padding: 1rem;
+}
+.ProductPage .nav {
+  display: flex;
+  align-items: center;
+}
+.ProductPage .nav div {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.ProductPage .nav div label {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  transition: 0.3s ease;
+  pointer-events: none;
+  font-size: 1.5rem;
+}
+.ProductPage .nav div input {
+  font-size: 1.2rem;
+  font-weight: 500;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-radius: 1.5em;
+  border: none;
+  outline: none;
+  width: 70%;
+  background-color: rgba(255, 255, 255, 0.125);
+  padding: 1rem;
+}
+.ProductPage .nav div input:focus + label {
+  top: 0;
+  font-size: 1rem;
+  color: #fff;
+  padding: 0 5px;
+  font-size: 1rem;
+}
+.ProductPage .center {
+  margin: 2rem auto;
+  width: 90%;
+  height: 30rem;
+  border-radius: 2em;
+  overflow: hidden;
+}
+.ProductPage .center .images {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+.ProductPage .center .images img {
+  flex-shrink: 0;
+  border-radius: 2em;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.ProductPage .container {
+  margin-top: 1rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.ProductPage .container .box {
+  cursor: pointer;
+  flex-shrink: 0;
+  width: 22rem;
+  height: 25rem;
+  background-color: rgba(255, 255, 255, 0.125);
+  border-radius: 1em;
+  position: relative;
+}
+.ProductPage .container .box .delete {
+  position: absolute;
+  top: 0;
+  right: 5%;
+}
+.ProductPage .container .box .delete h1 {
+  display: inline;
+  font-size: 2rem;
+  background-color: rgba(255, 255, 255, 0.6);
+  color: crimson;
+  padding: 0.1rem 1rem;
+  border-radius: 0.2em;
+  cursor: pointer;
+}
+.ProductPage .container .box .price {
+  position: absolute;
+  bottom: 32%;
+  right: 2%;
+}
+.ProductPage .container .box .price h1 {
+  cursor: alias;
+  display: inline;
+  border-radius: 0.5em;
+  font-size: 2rem;
+  color: white;
+  padding: 0.5rem 1rem;
+  background-color: rgba(0, 0, 0, 0.493);
+  cursor: pointer;
+  font-weight: 900;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+}
+.ProductPage .container .box .image {
+  width: 100%;
+  height: 70%;
+}
+.ProductPage .container .box .image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-position: center;
+  border-top-left-radius: 1em;
+  border-top-right-radius: 1em;
+}
+.ProductPage .container .box .info {
+  width: 100%;
+  height: 30%;
+  padding-left: 0.5rem;
+}
+.ProductPage .container .box .info h1 {
+  font-size: 1.1rem;
+}
+.ProductPage .container .box .info span {
+  opacity: 0.7;
+  width: 90%;
+  font-size: 0.9rem;
+  display: inline-block;
+  line-height: 1rem;
+  margin-bottom: 1rem;
+}
+.ProductPage .container .box .info .btn {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+}
+.ProductPage .container .box .info .btn button {
+  border-radius: 0.5em;
+  padding: 0.4rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: orange;
+  font-weight: 500;
+  cursor: pointer;
+}/*# sourceMappingURL=productPage.css.map */
