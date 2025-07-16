@@ -3,12 +3,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, rgba(88, 66, 233, 0.32), black);
   font-family: "Segoe UI", sans-serif;
 }
 
 .login-form {
-  background: rgba(255, 255, 255, 0.125);
+  background: rgba(0, 0, 0, 0.51);
   padding: 2rem 3rem;
   border-radius: 1rem;
   -webkit-backdrop-filter: blur(10px);
@@ -59,7 +58,7 @@
   left: 8px;
   font-size: 1rem;
   color: #fff;
-  background: rgba(85, 58, 235, 0.702);
+  font-size: 1.2rem;
   padding: 0 5px;
   border-radius: 5px;
 }

@@ -1,0 +1,29 @@
+.nav {
+    font-family: "Comfortaa";
+    font-weight: 900;
+
+    .l {
+        position: relative;
+        transition: color 0.3s ease;
+    }
+
+    .l::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, darkgreen, blue);
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+    }
+
+    .l:hover::before {
+        width: 100%;
+    }
+
+    .l:hover {
+        color: black;
+    }
+}

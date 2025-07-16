@@ -10,27 +10,14 @@ import { Suspense, useEffect, useRef, useState } from 'react';
 const ProductPage = () => {
     const [index, setIndex] = useState(0);
     const slideRef = useRef(null);
+    const [mounted, setMounted] = useState(false);
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
 
 
-    const images = [
-        "https://media.istockphoto.com/id/1341288649/photo/75mpix-panorama-of-beautiful-mount-ama-dablam-in-himalayas-nepal.webp?a=1&b=1&s=612x612&w=0&k=20&c=ZQ4s-_ltnxOs8_hU_ZnPxTnaCNv-gKOImKZok15wekk=", "https://media.istockphoto.com/id/511593366/photo/tropical-jungle.webp?a=1&b=1&s=612x612&w=0&k=20&c=sN4_reR9ZyFja8Aj4oZY-j4tAykcZ36cMA67nbS0ZxQ=", "https://media.istockphoto.com/id/471132388/photo/beautiful-sunset-with-palm-trees-at-backwaters-of-kerala.webp?a=1&b=1&s=612x612&w=0&k=20&c=yer-gRayNaN3Cvb5-IINSKKkOTjXgA-GZLlJlBZTN4c=", "https://media.istockphoto.com/id/641294046/photo/aerial-view-on-red-car-on-the-road-near-tea-plantation.webp?a=1&b=1&s=612x612&w=0&k=20&c=gUhR-E2tVKoxsUm3496WUxYusCrcQcLPu2GwGOKwGEw="
-    ]
 
-    if (typeof window !== "undefined") {
-        if (!window.sliderStarted) {
-            window.sliderStarted = true;
-
-            setInterval(() => {
-                setIndex((prev) => (prev + 1) % images.length);
-            }, 5000);
-        }
-    }
-
-    // Move the slider when index changes
-    if (slideRef.current) {
-        slideRef.current.style.transform = `translateX(-${index * 100}%)`;
-    }
     const [products, setProducts] = useState([])
     useEffect(() => {
         const getProduct = async () => {
@@ -58,24 +45,32 @@ const ProductPage = () => {
         navigate.push("/search")
     }
 
-    if (products.length == 0) return <Loading />
+
     return (
-        <div className='ProductPage'>
+        <div className={`ProductPage ${mounted ? "fade-in" : ""}`}>
             <div className="nav w-full h-[80px] rounded">
-                <div > 
+                <div >
                     <input onClick={search} type="text" />
                     <label >Search</label>
                 </div>
             </div>
+
+            <div className="center">
+                <div className="text-center my-10 px-4">
+                    <h1 className="text-4xl font-bold md:text-5xl mb-3">
+                        Elevate Your Style with <span>Urban Threads</span>
+                    </h1>
+                    <h2 className="text-xl md:text-2xl mb-2">
+                        Trendy. Comfortable. Unapologetically You.
+                    </h2>
+                    <p className="max-w-3xl mx-auto  md:text-lg">
+                        Discover a curated collection of premium streetwear and timeless essentials tailored for every vibe. Whether you're dressing up or keeping it casual, we’ve got you covered.
+                    </p>
+                </div>
+                
+            </div>
             <div className="header">
                 <h1 className='text-[1.3rem]'>Popular Products:</h1>
-            </div>
-            <div className="center">
-                <div className="images" ref={slideRef}>
-                    {images.map((src, i) => (
-                        <img key={i} src={src} alt={`Slide ${i}`} />
-                    ))}
-                </div>
             </div>
             <div className="container">
                 <Suspense fallback={<Loading />}>
