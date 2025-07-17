@@ -53,6 +53,9 @@
   padding: 0 5px;
   font-size: 1rem;
 }
+.ProductPage .center h1 {
+  color: lavenderblush;
+}
 .ProductPage .center span {
   font-family: "Comfortaa";
   color: skyblue;
@@ -60,6 +63,8 @@
 }
 .ProductPage .center h2 {
   font-weight: 500;
+  color: white;
+  opacity: 0.7;
 }
 .ProductPage .center p {
   width: 80%;
@@ -80,7 +85,7 @@
   flex-shrink: 0;
   width: 22rem;
   height: 25rem;
-  background-color: rgba(255, 255, 255, 0.125);
+  background-color: rgba(255, 255, 255, 0.396);
   border-radius: 1em;
   position: relative;
 }
@@ -101,7 +106,7 @@
 .ProductPage .container .box .price {
   position: absolute;
   bottom: 32%;
-  right: 2%;
+  right: 6%;
 }
 .ProductPage .container .box .price h1 {
   cursor: alias;
@@ -120,7 +125,8 @@
   height: 70%;
 }
 .ProductPage .container .box .image img {
-  width: 100%;
+  margin: 0.4rem auto;
+  width: 90%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
@@ -134,15 +140,17 @@
   padding-left: 0.5rem;
 }
 .ProductPage .container .box .info h1 {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
+  color: lavenderblush;
+  font-weight: 700;
 }
 .ProductPage .container .box .info span {
-  opacity: 0.7;
+  opacity: 0.6;
   width: 90%;
   font-size: 0.9rem;
   display: inline-block;
   line-height: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 .ProductPage .container .box .info .btn {
   width: 100%;
@@ -150,10 +158,11 @@
   gap: 1rem;
 }
 .ProductPage .container .box .info .btn button {
+  font-weight: 500;
+  font-family: "Comfortaa";
   border-radius: 0.5em;
   padding: 0.4rem;
-  background-color: rgba(255, 255, 255, 0.5);
-  color: orange;
+  color: white;
   font-weight: 500;
   cursor: pointer;
 }/*# sourceMappingURL=productPage.css.map */

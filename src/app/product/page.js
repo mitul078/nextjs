@@ -97,7 +97,7 @@ const ProductPage = () => {
                                     {/* <span className='text-blue-300 cursor-pointer'>{product.description.split(" ").length > 10 && "...more"}</span> */}
                                     <div className="btn">
                                         <button>Like</button>
-                                        <button>See more</button>
+                                        <button className='bg-blue-400'>See more</button>
                                     </div>
                                 </div>
                             </motion.div>

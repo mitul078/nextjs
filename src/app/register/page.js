@@ -3,24 +3,38 @@ import React, { useEffect, useState } from "react";
 import "@/styles/login.scss";
 import { useForm } from 'react-hook-form'
 import axios from "@/lib/axiosConfig";
-
-
-
-
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 const RegisterPage = () => {
     const [mounted, setMounted] = useState(false);
     const { register, handleSubmit, reset } = useForm();
+    const [loading , setLoading] = useState(false)
+    const navigate = useRouter();
     useEffect(() => {
         setMounted(true);
     }, []);
 
     const submitHandler = async (user) => {
+        setLoading(true)
         try {
-            await axios.post("/register", user)
-            reset()
+            const {data}  = await axios.post("/register", user)
+            if(data.message === "User already exist") {
+                toast.error("User already existed ,  please try again")
+            }
+            else if(data.message === "User Added"){
+                toast.success("Successfully Signed-up")
+                reset()
+                navigate.push("/login")
+            }
+            else{
+                toast.error("Something went wrong")
+            }
         } catch (error) {
             console.log(error)
+        }
+        finally{
+            setLoading(false)
         }
     }
 
@@ -39,7 +53,7 @@ const RegisterPage = () => {
                     <input {...register("password", { required: true })} type="password" required />
                     <label>Password</label>
                 </div>
-                <button type="submit">Sign-up</button>
+                <button type="submit">{loading ? "Wait Sign-up...." : "Sign-up"}</button>
             </form>
         </div>
     );

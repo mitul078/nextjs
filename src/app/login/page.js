@@ -58,10 +58,6 @@ const LoginPage = () => {
                     <input disabled={loadings} value={email} onChange={((e) => setEmail(e.target.value))} type="email" required />
                     <label>Email</label>
                 </div>
-                <div className="input-group">
-                    <input disabled={loadings} value={password} onChange={(e) => setPassword(e.target.value)} type="password" required />
-                    <label>Password</label>
-                </div>
                 <button disabled={loadings} type="submit">{loadings ? "Logging in..." : "Login"}</button>
                 <div>
                     <p className="mt-1 text-end mr-7">Don't have an account <span onClick={navigateHandler} className="text-blue-600 cursor-pointer">register</span></p>

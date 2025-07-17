@@ -5,8 +5,8 @@ import { NextResponse } from "next/server";
 export async function POST(req) {
     try {
         await connectToDB()
-        const { email, password } = await req.json()
-        const user = await userModel.findOne({ email, password })
+        const { email } = await req.json()
+        const user = await userModel.findOne({ email })
 
         if (!user) {
             return NextResponse.json({

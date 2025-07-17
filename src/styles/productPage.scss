@@ -63,15 +63,20 @@
 
     .center {
         
-
+        h1{
+            color: lavenderblush;
+        }
         span {
             font-family: "Comfortaa";
             color: skyblue;
             font-weight: 600;
+            
         }
 
         h2 {
             font-weight: 500;
+            color: white;
+            opacity: .7;
         }
 
         p {
@@ -95,7 +100,7 @@
             flex-shrink: 0;
             width: 22rem;
             height: 25rem;
-            background-color: rgba(255, 255, 255, 0.125);
+            background-color: rgba(255, 255, 255, 0.396);
             border-radius: 1em;
             position: relative;
 
@@ -118,7 +123,7 @@
             .price {
                 position: absolute;
                 bottom: 32%;
-                right: 2%;
+                right: 6%;
 
                 h1 {
                     cursor: alias;
@@ -139,7 +144,8 @@
                 height: 70%;
 
                 img {
-                    width: 100%;
+                    margin: .4rem auto;
+                    width: 90%;
                     height: 100%;
                     object-fit: cover;
                     background-position: center;
@@ -154,16 +160,18 @@
                 padding-left: .5rem;
 
                 h1 {
-                    font-size: 1.1rem;
+                    font-size: 1.3rem;
+                    color: lavenderblush;
+                    font-weight: 700;
                 }
 
                 span {
-                    opacity: .7;
+                    opacity: .6;
                     width: 90%;
                     font-size: .9rem;
                     display: inline-block;
                     line-height: 1rem;
-                    margin-bottom: 1rem;
+                    margin-bottom: .5rem;
                 }
 
                 .btn {
@@ -172,10 +180,11 @@
                     gap: 1rem;
 
                     button {
+                        font-weight: 500;
+                        font-family: "Comfortaa";
                         border-radius: .5em;
                         padding: .4rem;
-                        background-color: rgba(255, 255, 255, 0.5);
-                        color: orange;
+                        color: white;
                         font-weight: 500;
                         cursor: pointer;
                     }
