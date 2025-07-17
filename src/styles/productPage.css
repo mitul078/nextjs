@@ -1,6 +1,4 @@
 .ProductPage {
-  width: 100%;
-  height: calc(100vh - 60px);
   padding: 1rem;
   opacity: 0;
   transform: translateY(30px);
@@ -52,6 +50,120 @@
   color: #fff;
   padding: 0 5px;
   font-size: 1rem;
+}
+.ProductPage .center .img-container {
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+.ProductPage .center .img-container .boxes {
+  height: -moz-fit-content;
+  height: fit-content;
+  border-radius: 1em;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+}
+.ProductPage .center .img-container .boxes .image-box {
+  width: 250px;
+  height: 200px;
+  border-radius: 1em;
+}
+.ProductPage .center .img-container .boxes :nth-child(1) {
+  height: 250px;
+  transform: rotateY(-15deg);
+  background-color: yellow;
+}
+.ProductPage .center .img-container .boxes :nth-child(2) {
+  height: 270px;
+  transform: rotateY(-15deg);
+  background-color: green;
+}
+.ProductPage .center .img-container .boxes :nth-child(3) {
+  height: 300px;
+  background-color: blue;
+}
+.ProductPage .center .img-container .boxes :nth-child(4) {
+  height: 270px;
+  transform: rotateY(15deg);
+  background-color: gray;
+}
+.ProductPage .center .img-container .boxes :nth-child(5) {
+  height: 250px;
+  transform: rotateY(20deg);
+  background-color: orange;
+}
+.ProductPage .center .thumbnail-container {
+  width: 100%;
+  height: 40rem;
+  position: relative;
+}
+.ProductPage .center .thumbnail-container .main-image {
+  width: 100%;
+  height: 100%;
+}
+.ProductPage .center .thumbnail-container .main-image img {
+  border-radius: 2em;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.ProductPage .center .thumbnail-container .info-container {
+  z-index: 2;
+  position: absolute;
+  top: 18rem;
+  left: 5rem;
+}
+.ProductPage .center .thumbnail-container .info-container h1 {
+  font-size: 3rem;
+  color: black;
+  line-height: 6rem;
+  white-space: nowrap;
+}
+.ProductPage .center .thumbnail-container .info-container p {
+  color: black;
+  font-size: 1.2rem;
+  opacity: 0.8;
+  margin-bottom: 20px;
+  width: 70%;
+}
+.ProductPage .center .thumbnail-container .info-container .small-container {
+  padding-left: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.ProductPage .center .thumbnail-container .info-container .small-container h2 {
+  font-size: 1.5rem;
+  opacity: 1;
+  color: black;
+}
+.ProductPage .center .thumbnail-container .info-container .small-container button {
+  cursor: pointer;
+  padding: 0.5rem 2rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 1em;
+  font-size: 1.5rem;
+}
+.ProductPage .center .thumbnail-container .arrow {
+  position: absolute;
+  bottom: 10%;
+  right: 5%;
+}
+.ProductPage .center .thumbnail-container .arrow .right {
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  rotate: 180deg;
+  cursor: pointer;
+}
+.ProductPage .center .thumbnail-container .arrow .left {
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 .ProductPage .center h1 {
   color: lavenderblush;
