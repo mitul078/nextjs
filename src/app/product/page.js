@@ -2,7 +2,7 @@
 import Loading from '@/components/Loader';
 import axios from '@/lib/axiosConfig';
 import '@/styles/productPage.scss';
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
@@ -102,26 +102,39 @@ const ProductPage = () => {
                     </p>
                 </div>
 
-                <div className="thumbnail-container">
-                    <div className="main-image">
-                        <img src={imgSRC} alt="" />
-                    </div>
-                    <div className="info-container">
-                        <h1>{name}</h1>
-                        <p>{description}</p>
-                        <div className="small-container">
-                            <h2>{rating}</h2>
-                            <button>See More</button>
+                <AnimatePresence mode='wait'>
+                    <motion.div
+                        key={currentIndex}
+                        initial={{ opacity: 0, x: 50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -50 }}
+                        transition={{duration:.4}}
+                        className="thumbnail-container"
+                    >
+                        <div className="main-image">
+                            <img src={imgSRC} alt="" />
                         </div>
-                    </div>
-                    <div className="arrow flex gap-2">
-                        <button onClick={rightChanged} className='right'><svg xmlns="http://www.w3.org/2000/svg" height="70px" viewBox="0 -960 960 960" width="70px" fill="#e3e3e3"><path d="M320-200v-560l440 280-440 280Zm80-280Zm0 134 210-134-210-134v268Z" /></svg></button>
+                        <div className="info-container">
+                            <h1>{name}</h1>
+                            <p>{description}</p>
+                            <div className="small-container">
+                                <h2>Rating: {rating}/5</h2>
+                                <button>See More</button>
+                            </div>
+                        </div>
+                        <div className="wrapper"></div>
+
+                        <div className="arrow flex gap-2">
+                            <button onClick={rightChanged} className='right'><svg xmlns="http://www.w3.org/2000/svg" height="70px" viewBox="0 -960 960 960" width="70px" fill="#e3e3e3"><path d="M320-200v-560l440 280-440 280Zm80-280Zm0 134 210-134-210-134v268Z" /></svg></button>
 
 
-                        <button onClick={leftChanged} className='left'><svg xmlns="http://www.w3.org/2000/svg" height="70px" viewBox="0 -960 960 960" width="70px" fill="#e3e3e3"><path d="M320-200v-560l440 280-440 280Zm80-280Zm0 134 210-134-210-134v268Z" /></svg></button>
-                    </div>
-                </div>
+                            <button onClick={leftChanged} className='left'><svg xmlns="http://www.w3.org/2000/svg" height="70px" viewBox="0 -960 960 960" width="70px" fill="#e3e3e3"><path d="M320-200v-560l440 280-440 280Zm80-280Zm0 134 210-134-210-134v268Z" /></svg></button>
+                        </div>
 
+                        <div className="design"></div>
+
+                    </motion.div>
+                </AnimatePresence>
                 <div className="img-container">
                     <div className="boxes">
                         <div className="image-box"></div>

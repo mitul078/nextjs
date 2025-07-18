@@ -130,6 +130,21 @@
                     object-fit: cover;
                 }
             }
+            .wrapper{
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.406);
+                position: absolute;
+                top: 0;
+                border-radius: 2em;
+            }
+            .design{
+                width: 100%;
+                height: 60px;
+                background-color: black;
+                position: absolute;
+                bottom: 0;
+            }
             .info-container{
                 z-index: 2;
                 position: absolute;
@@ -137,16 +152,20 @@
                 left: 5rem;
 
                 h1{
+                    font-family: Arial, Helvetica, sans-serif;
+                    font-weight: 900;
+                    border-radius: 1rem;
                     font-size: 3rem;
-                    color: black;
+                    color: white;
                     line-height: 6rem;
                     white-space: nowrap;
                 }
 
                 p{
-                    color: black;
+                    
+                    color: white;
                     font-size: 1.2rem;
-                    opacity: .8;
+                    opacity: .6;
                     margin-bottom: 20px;
                     width: 70%;
                 }
@@ -159,7 +178,9 @@
                     h2{
                         font-size: 1.5rem;
                         opacity: 1;
-                        color: black;
+                    }
+                    span{
+                        display: inline-block;
                     }
                     button{
                         cursor: pointer;
