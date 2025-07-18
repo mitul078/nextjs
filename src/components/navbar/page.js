@@ -40,7 +40,7 @@ const Nav = () => {
                         isLogin ? (
                             <Link href={"/profile"} className={`${pathName === "/profile" ? " " : ""} text-black l`}>Profile</Link>
                         ) : (
-                            <Link href={"/login"} className= "bg-blue-400 px-2 py-1 rounded text-white" >Sign-in</Link>
+                            <Link href={"/login"} className= "hover:bg-blue-600 transition duration-200 ease bg-blue-400 px-2 py-1 rounded text-white" >Sign-in</Link>
                         )
                     }
 

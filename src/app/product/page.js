@@ -8,6 +8,14 @@ import { useEffect, useState } from 'react';
 
 
 const ProductPage = () => {
+    const images = [
+        "https://imgs.search.brave.com/wGuM4QwGFxeQE8ZiIR9apg7YUIZKr-BKaGBhov5RQxA/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJzLmNvbS9p/bWFnZXMvaGQvNGst/bmF0dXJlLXNtYWxs/LWhpbGxzLXBjemRw/aWZ4Y3B5OTl4NGUu/anBn",
+        "https://imgs.search.brave.com/BFiRvMmOERPUNtWqcFjp8lCG1lUapchxWAfoHu0t5wk/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJhY2Nlc3Mu/Y29tL2Z1bGwvMTA4/OTk4Ni5qcGc",
+        "https://imgs.search.brave.com/bZT_eYlTciWczBXk2wnvZiikw9S4KqrVCICFQpWjXTY/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJzLmNvbS9p/bWFnZXMvaGQvNGst/bmF0dXJlLXN1bnJp/c2UtcXFuYWM2ZnNu/cHEwOXIxaS5qcGc",
+        "https://imgs.search.brave.com/_9s_3S9-ct9NNrFG4pZu2qwgcaMM_EsrMXkeW5rLmpk/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9nZXR3/YWxscGFwZXJzLmNv/bS93YWxscGFwZXIv/ZnVsbC9iL2MvYi8x/MjAwMTU0LTRrLXVs/dHJhLWhkLW5hdHVy/ZS13YWxscGFwZXIt/Mzg0MHgyMTYwLWZv/ci13aW5kb3dzLmpw/Zw",
+        "https://imgs.search.brave.com/6ZcDZg3t1xVxetRyij3APS3eZ_S8FO9ATMnFEP6AEiI/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJhY2Nlc3Mu/Y29tL2Z1bGwvMzEy/MDUuanBn",
+        "https://imgs.search.brave.com/gix3kAyRINq_yWJwUvR0YqgHdZousxJvQ8pZ0T0ajFs/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9hbnRv/bmdvcmxpbi5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMTcv/MTIvNGstd2FsbHBh/cGVycy1uYXR1cmUt/dHJlZXMuanBn", "https://imgs.search.brave.com/yASONtgHIp05e1xWjHxxjhBhW75Gg4XXERwyMDK0a6I/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJiYXQuY29t/L2ltZy8xNTA4MjY1/LW5hdHVyZS1sYWtl/LTRrLXVsdHJhLWhk/LXdhbGxwYXBlci5q/cGc"
+    ];
     const [mounted, setMounted] = useState(false);
     const [text, setText] = useState('');
     const navigate = useRouter()
@@ -55,7 +63,6 @@ const ProductPage = () => {
         const thumbnailImage = async () => {
             try {
                 const { data } = await axios.get("/thumbnail")
-                console.log(data)
                 setThumbnailProduct(data.thumbnail)
             } catch (error) {
                 console.log(error)
@@ -64,8 +71,6 @@ const ProductPage = () => {
         thumbnailImage()
 
     }, [])
-
-    console.log(thumbnailProduct)
     if (thumbnailProduct.length === 0) {
         return <Loading />
     }
@@ -79,6 +84,10 @@ const ProductPage = () => {
 
 
     const { name, description, imgSRC, rating } = thumbnailProduct[currentIndex]
+
+    const navigateToDetailPage = (id) => {
+        navigate.push(`/product/${id}`)
+    }
 
     return (
         <div className={`ProductPage ${mounted ? "fade-in" : ""}`}>
@@ -102,14 +111,27 @@ const ProductPage = () => {
                     </p>
                 </div>
 
+                <div className="img-container">
+                    <div className="boxes">
+                        <div className="image-box"></div>
+                        <div className="image-box"></div>
+                        <div className="image-box"></div>
+                        <div className="image-box"></div>
+                        <div className="image-box"></div>
+                    </div>
+                </div>
+
+
+
+
                 <AnimatePresence mode='wait'>
                     <motion.div
                         key={currentIndex}
                         initial={{ opacity: 0, x: 50 }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -50 }}
-                        transition={{duration:.4}}
-                        className="thumbnail-container"
+                        transition={{ duration: .4 }}
+                        className="thumbnail-container "
                     >
                         <div className="main-image">
                             <img src={imgSRC} alt="" />
@@ -135,18 +157,10 @@ const ProductPage = () => {
 
                     </motion.div>
                 </AnimatePresence>
-                <div className="img-container">
-                    <div className="boxes">
-                        <div className="image-box"></div>
-                        <div className="image-box"></div>
-                        <div className="image-box"></div>
-                        <div className="image-box"></div>
-                        <div className="image-box"></div>
-                    </div>
-                </div>
+
 
             </div>
-            <div className="header">
+            <div className="header mt-10">
                 <h1 className='text-[1.3rem]'>Popular Products:</h1>
             </div>
             <div className="container">
@@ -175,7 +189,7 @@ const ProductPage = () => {
                                 {/* <span className='text-blue-300 cursor-pointer'>{product.description.split(" ").length > 10 && "...more"}</span> */}
                                 <div className="btn">
                                     <button>Like</button>
-                                    <button className='bg-blue-400'>See more</button>
+                                    <button onClick={() => navigateToDetailPage(product._id)} className='bg-blue-400'>See more</button>
                                 </div>
                             </div>
                         </motion.div>

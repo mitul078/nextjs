@@ -12,3 +12,16 @@ export async function DELETE(req, { params }) {
         console.log(error)
     }
 }
+
+export async function GET(req , {params}) {
+    try {
+        await connectToDB()
+        const {id} = params
+        const data = await productModel.findById(id);
+        return NextResponse.json({
+            data
+        })
+    } catch (error) {
+        console.log(data)
+    }
+}
